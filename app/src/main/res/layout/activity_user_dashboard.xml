@@ -6,7 +6,18 @@
     android:layout_height="match_parent"
     tools:context=".userDashboard">
 
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
 
+
+    <Button
+        android:id="@+id/btn_store"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Find Nearby Store"
+
+    />
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -27,7 +38,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0">
 
-        <!-- This is the cardview -->
+        <!-- This is the card-view -->
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -78,6 +89,10 @@
         </LinearLayout>
 
 
+
     </androidx.cardview.widget.CardView>
+
+</LinearLayout>
+
 
 </RelativeLayout>
