@@ -5,79 +5,116 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".userDashboard">
-
-
-    <androidx.cardview.widget.CardView
+    
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="9dp"
-        android:layout_marginBottom="673dp"
-        app:cardBackgroundColor="@color/white"
-        app:cardCornerRadius="20dp"
-        app:cardElevation="10dp"
-        app:cardMaxElevation="12dp"
-        app:cardPreventCornerOverlap="true"
-        app:cardUseCompatPadding="true"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <!-- This is the cardview -->
-        <LinearLayout
-            android:layout_width="wrap_content"
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_margin="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="9dp"
+            android:layout_marginBottom="673dp"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="10dp"
+            app:cardMaxElevation="12dp"
+            app:cardPreventCornerOverlap="true"
+            app:cardUseCompatPadding="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0">
 
-            <ImageView
-                android:id="@+id/placeholderview"
-                android:layout_width="150dp"
-                android:layout_height="200dp"
-                android:layout_gravity=""
-                android:layout_margin="10dp"
-                android:contentDescription="This is a placeholder image"
-                android:src="@drawable/placeholder"/>
-
+            <!-- This is the cardview -->
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="horizontal">
 
-                <TextView
+                <ImageView
+                    android:id="@+id/placeholderview"
+                    android:layout_width="150dp"
+                    android:layout_height="200dp"
+                    android:layout_gravity=""
+                    android:layout_margin="10dp"
+                    android:contentDescription="This is a placeholder image"
+                    android:src="@drawable/placeholder"/>
+
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:paddingTop="30dp"
-                    android:text="Username"
-                    android:textColor="@color/black"
-                    android:paddingLeft="25dp"
+                    android:orientation="vertical">
 
-                    />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="30dp"
+                        android:text="Username"
+                        android:textColor="@color/black"
+                        android:paddingLeft="25dp"
 
-                <Space
-                    android:layout_width="match_parent"
-                    android:layout_height="30dp"/>
+                        />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Email"
-                    android:textColor="@color/black"
-                    android:paddingLeft="25dp"
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"/>
 
-                    />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Email"
+                        android:textColor="@color/black"
+                        android:paddingLeft="25dp"
 
+                        />
+
+                </LinearLayout>
 
 
             </LinearLayout>
 
 
-        </LinearLayout>
+        </androidx.cardview.widget.CardView>
 
 
-    </androidx.cardview.widget.CardView>
+
+
+
+    </LinearLayout>
+
+
+
+
+    
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10sp"
+        android:layout_marginBottom="10sp"
+        android:rowCount="2"
+        android:columnCount="2"
+        >
+
+        <androidx.cardview.widget.CardView
+            android:layout_gravity="fill"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"></androidx.cardview.widget.CardView>
+
+
+
+
+
+
+
+
+
+    </GridLayout>
 
 </RelativeLayout>

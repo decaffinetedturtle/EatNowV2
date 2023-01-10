@@ -1,8 +1,10 @@
-package com.mad.eatnowv2;
+package com.mad.eatnowv2.registerUser;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.mad.eatnowv2.R;
 
 public class userRegister extends AppCompatActivity {
 

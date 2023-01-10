@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.mad.eatnowv2.forgetPassword.retrieveEmailForgetPassword;
+import com.mad.eatnowv2.registerUser.userRegister;
 
 public class MainActivity extends AppCompatActivity {
 
