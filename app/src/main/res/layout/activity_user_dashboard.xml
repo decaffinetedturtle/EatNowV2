@@ -94,6 +94,7 @@
             >
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/expiredCard"
                 android:layout_gravity="fill"
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
@@ -122,6 +123,7 @@
 
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/unexpiredCard"
                 android:layout_gravity="fill"
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
@@ -148,6 +150,7 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/userCard"
                 android:layout_gravity="fill"
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
@@ -174,6 +177,7 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/scanCard"
                 android:layout_gravity="fill"
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
