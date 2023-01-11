@@ -187,7 +187,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Add new entry"
+                    android:text="Add new items"
                     android:textSize="20sp"
                     android:textAlignment="center"
                     android:layout_gravity="center"
