@@ -23,7 +23,7 @@
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="50dp"></Space>
+        android:layout_height="40dp"></Space>
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -43,7 +43,7 @@
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="25dp"></Space>
+            android:layout_height="10dp"></Space>
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -76,7 +76,7 @@
 
             <Space
                 android:layout_width="wrap_content"
-                android:layout_height="40dp"></Space>
+                android:layout_height="10dp"></Space>
 
             <Button
                 android:id="@+id/loginBtn"
@@ -86,6 +86,18 @@
                 android:text="Login"
                 >
             </Button>
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="15dp"></Space>
+
+            
+            <Button
+                android:id="@+id/fingerPrintBtn"
+                android:layout_width="42dp"
+                android:layout_height="47dp"
+                android:layout_gravity="center"
+                android:background="@drawable/pngegg"></Button>
 
             <Space
                 android:layout_width="wrap_content"
