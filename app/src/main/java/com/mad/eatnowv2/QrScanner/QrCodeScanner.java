@@ -1,4 +1,4 @@
-package com.mad.eatnowv2;
+package com.mad.eatnowv2.QrScanner;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,6 +11,7 @@ import com.budiyev.android.codescanner.CodeScanner;
 import com.budiyev.android.codescanner.CodeScannerView;
 import com.budiyev.android.codescanner.DecodeCallback;
 import com.google.zxing.Result;
+import com.mad.eatnowv2.R;
 
 
 public class QrCodeScanner extends AppCompatActivity {
