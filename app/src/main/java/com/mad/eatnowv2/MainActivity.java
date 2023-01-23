@@ -15,47 +15,46 @@ import com.mad.eatnowv2.registerUser.userRegister;
 public class MainActivity extends AppCompatActivity {
 
     Button btnLogin, btnRegister, ForgotPasswordBtn;
-    EditText etUsername, etPassword;
+    EditText etUsername, etPassword, etapa;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //button find view by ids
+        // button find view by ids
         btnLogin = findViewById(R.id.loginBtn);
         btnRegister = findViewById(R.id.registerBtn);
         ForgotPasswordBtn = findViewById(R.id.ForgotPasswordBtn);
 
-        //edit text find view by ids
+        // edit text find view by ids
         etUsername = findViewById(R.id.usernameET);
         etPassword = findViewById(R.id.passwordET);
 
-        //set on click listener login button
+        // set on click listener login button
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //get username and password
+                // get username and password
                 String username = etUsername.getText().toString();
                 String password = etPassword.getText().toString();
 
-                //check if username and password are empty
-                if(username.isEmpty() || password.isEmpty()){
+                // check if username and password are empty
+                if (username.isEmpty() || password.isEmpty()) {
                     Toast.makeText(MainActivity.this, "Please enter username and password", Toast.LENGTH_SHORT).show();
-                }else{
-                    //check if username and password are correct
-                    if(username.equals("admin") && password.equals("admin")){
-                        //if correct, go to home page
+                } else {
+                    // check if username and password are correct
+                    if (username.equals("admin") && password.equals("admin")) {
+                        // if correct, go to home page
                         Intent intent = new Intent(MainActivity.this, userDashboard.class);
                         startActivity(intent);
-                    }else{
-                        //if incorrect, show error message
+                    } else {
+                        // if incorrect, show error message
                         Toast.makeText(MainActivity.this, "Incorrect username or password", Toast.LENGTH_SHORT).show();
                     }
                 }
             }
         });
-
 
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,7 +64,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
         ForgotPasswordBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -73,8 +71,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-
 
     }
 }
