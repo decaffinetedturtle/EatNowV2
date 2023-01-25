@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "497830164204",
+    "project_id": "eatnow-473d5",
+    "storage_bucket": "eatnow-473d5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:497830164204:android:4605d3f2624594b942d7c9",
+        "android_client_info": {
+          "package_name": "com.mad.eatnowv2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "497830164204-75jv8ectc3822jdtvqv597knbds0694d.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mad.eatnowv2",
+            "certificate_hash": "0f4c3f980aaf7ab3616b21c025f770d1bafbceb2"
+          }
+        },
+        {
+          "client_id": "497830164204-p55nmmiffnel6ambl9evkdq4d4n23n4v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDANp9PL3814aVjV259mx435SJKa79HlJc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "497830164204-p55nmmiffnel6ambl9evkdq4d4n23n4v.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
