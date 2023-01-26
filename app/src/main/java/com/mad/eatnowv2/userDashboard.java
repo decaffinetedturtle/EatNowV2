@@ -71,7 +71,7 @@ public class userDashboard extends AppCompatActivity implements View.OnClickList
             case R.id.userCard :
                 i = new android.content.Intent(this, userSettings.class); startActivity(i); break;
             case R.id.scanCard :
-                i = new android.content.Intent(this, addItem.class); startActivity(i); break;
+                i = new android.content.Intent(this, barcode.class); startActivity(i); break;
             default:break;
         }
 
