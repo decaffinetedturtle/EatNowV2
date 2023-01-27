@@ -33,6 +33,9 @@ public class userDashboard extends AppCompatActivity implements View.OnClickList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_dashboard);
 
+
+        dashboardUsername = findViewById(R.id.dashboardUsername);
+
         fauth = FirebaseAuth.getInstance();
         fstore = FirebaseFirestore.getInstance();
 
