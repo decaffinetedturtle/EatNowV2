@@ -33,7 +33,7 @@ public class userRegister extends AppCompatActivity {
     private static final String TAG = "userRegister";
 
     FirebaseAuth mAuth;
-    EditText regUser, regPass;
+    EditText regUser, regPass, regEmail;
     Button regBtn;
 
     FirebaseFirestore fStore;
@@ -45,6 +45,7 @@ public class userRegister extends AppCompatActivity {
 
         regUser = findViewById(R.id.registerInput);
         regPass = findViewById(R.id.registerPass);
+        regEmail = findViewById(R.id.registerEmail);
 
         regBtn = findViewById(R.id.registerBtn);
 
@@ -60,6 +61,7 @@ public class userRegister extends AppCompatActivity {
             public void onClick(View view) {
                 String registerInput = regUser.getText().toString().trim();
                 String registerPass = regPass.getText().toString().trim();
+                String registerEmail = regEmail.getText().toString().trim();
 
                 if (TextUtils.isEmpty(registerInput)){
                     regUser.setError("Username field is empty");
@@ -70,12 +72,17 @@ public class userRegister extends AppCompatActivity {
                     return;
                 }
 
+                if (TextUtils.isEmpty(registerEmail)){
+                    regEmail.setError("Email is field is empty");
+                    return;
+                }
+
                 if(registerPass.length()< 6){
                     regPass.setError("Password is too short");
                     return;
                 }
 
-                mAuth.createUserWithEmailAndPassword(registerInput,registerPass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                mAuth.createUserWithEmailAndPassword(registerEmail,registerPass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
 
@@ -85,6 +92,8 @@ public class userRegister extends AppCompatActivity {
                             Map<String,Object> user = new HashMap<>();
                             user.put("username",registerInput);
                             user.put("password",registerPass);
+                            user.put("email",registerEmail);
+
                             documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override
                                 public void onSuccess(Void unused) {
