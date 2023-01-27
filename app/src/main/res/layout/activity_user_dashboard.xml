@@ -163,16 +163,16 @@
                 >
 
                 <TextView
+                    android:id="@+id/btn_halal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="User Settings"
-                    android:textSize="20sp"
-                    android:textAlignment="center"
                     android:layout_gravity="center"
-                    android:textColor="@color/black"
                     android:paddingTop="30sp"
                     android:paddingBottom="30sp"
-                    />
+                    android:text="Check Halal"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
 
 
             </androidx.cardview.widget.CardView>
@@ -209,6 +209,8 @@
 
 <!--This is the end of the encompassing linear layout for this page-->
     </LinearLayout>
+
+
 
 
 </RelativeLayout>

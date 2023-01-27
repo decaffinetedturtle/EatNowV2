@@ -16,7 +16,8 @@ import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.mad.eatnowv2.menuItems.ExpiredItems;
 import com.mad.eatnowv2.menuItems.addItem;
 import com.mad.eatnowv2.menuItems.unExpiredItems;
-import com.mad.eatnowv2.menuItems.userSettings;
+
+import com.mad.eatnowv2.Halal.CheckHalal;
 
 public class userDashboard extends AppCompatActivity implements View.OnClickListener {
 
@@ -25,12 +26,15 @@ public class userDashboard extends AppCompatActivity implements View.OnClickList
     FirebaseFirestore fstore;
     String userID;
 
-    private CardView unExpiredItems, expiredItems, userSettings, scanCard;
+    private CardView unExpiredItems, expiredItems, btn_halal, scanCard;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_dashboard);
+
+
+        dashboardUsername = findViewById(R.id.dashboardUsername);
 
         fauth = FirebaseAuth.getInstance();
         fstore = FirebaseFirestore.getInstance();
@@ -50,13 +54,13 @@ public class userDashboard extends AppCompatActivity implements View.OnClickList
 
         unExpiredItems = (CardView) findViewById(R.id.unexpiredCard);
         expiredItems = (CardView) findViewById(R.id.expiredCard);
-        userSettings = (CardView) findViewById(R.id.userCard);
+        btn_halal = (CardView) findViewById(R.id.userCard);
         scanCard = (CardView) findViewById(R.id.scanCard);
 
 
         unExpiredItems.setOnClickListener(this);
         expiredItems.setOnClickListener(this);
-        userSettings.setOnClickListener(this);
+        btn_halal.setOnClickListener(this);
         scanCard.setOnClickListener(this);
 
     }
@@ -71,7 +75,7 @@ public class userDashboard extends AppCompatActivity implements View.OnClickList
             case R.id.expiredCard :
                 i = new android.content.Intent(this, ExpiredItems.class); startActivity(i); break;
             case R.id.userCard :
-                i = new android.content.Intent(this, userSettings.class); startActivity(i); break;
+                i = new android.content.Intent(this, CheckHalal.class); startActivity(i); break;
             case R.id.scanCard :
                 i = new android.content.Intent(this, addItem.class); startActivity(i); break;
             default:break;

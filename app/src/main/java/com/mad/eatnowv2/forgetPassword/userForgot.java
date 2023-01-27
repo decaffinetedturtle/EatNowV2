@@ -13,6 +13,7 @@ import com.mad.eatnowv2.R;
 public class userForgot extends AppCompatActivity {
 
     Button backToLoginBtn;
+    Button forgotPassword;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
