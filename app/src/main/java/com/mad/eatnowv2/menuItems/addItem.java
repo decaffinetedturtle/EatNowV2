@@ -1,32 +1,38 @@
 package com.mad.eatnowv2.menuItems;
 
-import android.Manifest;
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.graphics.Bitmap;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.mad.eatnowv2.R;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class addItem extends AppCompatActivity {
+
+    EditText etFoodTitle, etFoodDesc, etExpDate;
+    FirebaseFirestore fStore;
+    Button btnSubmit;
+    ImageView imageSelected;
+    Button btnCamera;
 
 
     public static final int CAMERA_PERM_CODE = 101;
     public static final int CAMERA_REQUEST_CODE = 102;
 
-    ImageView imageSelected;
-    Button btnCamera;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,47 +41,70 @@ public class addItem extends AppCompatActivity {
         imageSelected = findViewById(R.id.imageView2);
         btnCamera = findViewById(R.id.btnCamera);
 
-       btnCamera.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View view) {
-               Toast.makeText(addItem.this, "Camera Button Clicked", Toast.LENGTH_SHORT).show();
-           }
-       });
+        etFoodTitle = findViewById(R.id.etFoodTitle);
+        etFoodDesc = findViewById(R.id.etFoodDesc);
+        etExpDate = findViewById(R.id.etFoodExpDate);
 
-    }
-    private void  askCameraPermissions(){
-        if(ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED){
-            ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.CAMERA},CAMERA_PERM_CODE);
-        }else {
-            openCamera();
-        }
+        btnSubmit = findViewById(R.id.btnSubmit);
 
-    }
+        fStore = FirebaseFirestore.getInstance();
 
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        if(requestCode == CAMERA_REQUEST_CODE){
-            if(grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
 
-            }else{
-                Toast.makeText(this, "Camera Permission Required", Toast.LENGTH_SHORT).show();
+
+       btnSubmit.setOnClickListener(new View.OnClickListener()
+
+    {
+        @Override
+        public void onClick (View view){
+        String foodName = etFoodTitle.getText().toString().trim();
+        String foodDesc = etFoodDesc.getText().toString().trim();
+        String expiryDate = etExpDate.getText().toString().trim();
+
+
+        Map<String, String> Userdata = new HashMap<>();
+        Userdata.put("foodName", foodName);
+        Userdata.put("foodDesc", foodDesc);
+        Userdata.put("expiryDate", expiryDate);
+
+
+        fStore.collection("UserData").add(Userdata).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+            @Override
+            public void onSuccess(DocumentReference documentReference) {
+                Intent intent = new Intent(addItem.this, ExpiredItems.class);
+                startActivity(intent);
+
             }
-        }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                String error = e.getMessage();
+                Toast.makeText(addItem.this, "Error" + error, Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
     }
 
-    private void openCamera() {
-        Intent camera = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        startActivityForResult(camera,CAMERA_REQUEST_CODE);
-    }
+
+    });
 
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode == CAMERA_REQUEST_CODE){
-            Bitmap image = (Bitmap) data.getExtras().get("data");
-            imageSelected.setImageBitmap(image);
-        }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
