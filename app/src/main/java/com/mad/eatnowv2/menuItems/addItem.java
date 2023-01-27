@@ -14,12 +14,22 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.mad.eatnowv2.R;
 
 public class addItem extends AppCompatActivity {
+    FirebaseAuth fauth;
+
+    FirebaseFirestore fstore;
+
+    EditText etFoodName,etFoodDesc,etFoodExp;
+    Button btnSubmit;
+
 public static final int CAMERA_PERM_CODE = 101;
 public static final int CAMERA_REQUEST_CODE = 102;
 
@@ -29,6 +39,10 @@ public static final int CAMERA_REQUEST_CODE = 102;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_item);
+        etFoodName = findViewById(R.id.etFoodName);
+        etFoodDesc = findViewById(R.id.etFoodDesc);
+        etFoodExp = findViewById(R.id.etFoodExp);
+        btnSubmit = findViewById(R.id.btnSubmit);
 
         imageSelected = findViewById(R.id.imageView2);
         btnCamera = findViewById(R.id.btnCamera);
@@ -41,6 +55,12 @@ public static final int CAMERA_REQUEST_CODE = 102;
             }
 
 
+        });
+        btnSubmit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
         });
 
     }
