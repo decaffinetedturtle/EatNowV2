@@ -60,6 +60,7 @@
         android:id="@+id/etFoodDesc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:height="80dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Food Description"
