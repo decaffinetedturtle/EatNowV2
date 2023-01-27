@@ -20,7 +20,7 @@ import java.util.concurrent.Executor;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button btnLogin, btnRegister, ForgotPasswordBtn;
+    Button btnLogin, btnRegister, ForgotPasswordBtn, fingerPrintBtn;
     EditText etUsername, etPassword, etapa;
 
     @Override
