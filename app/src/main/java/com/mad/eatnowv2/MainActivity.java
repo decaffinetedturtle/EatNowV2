@@ -8,11 +8,16 @@ import androidx.core.content.ContextCompat;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 import com.mad.eatnowv2.forgetPassword.retrieveEmailForgetPassword;
 import com.mad.eatnowv2.registerUser.userRegister;
 
@@ -22,6 +27,8 @@ public class MainActivity extends AppCompatActivity {
 
     Button btnLogin, btnRegister, ForgotPasswordBtn, fingerPrintBtn;
     EditText etUsername, etPassword, etapa;
+
+    FirebaseAuth fAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +41,8 @@ public class MainActivity extends AppCompatActivity {
         ForgotPasswordBtn = findViewById(R.id.ForgotPasswordBtn);
         fingerPrintBtn = findViewById(R.id.fingerPrintBtn);
 
+        fAuth = FirebaseAuth.getInstance();
+
         // edit text find view by ids
         etUsername = findViewById(R.id.usernameET);
         etPassword = findViewById(R.id.passwordET);
@@ -43,11 +52,37 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // get username and password
-                String username = etUsername.getText().toString();
-                String password = etPassword.getText().toString();
+                String username = etUsername.getText().toString().trim();
+                String password = etPassword.getText().toString().trim();
+
+                if (TextUtils.isEmpty(username)){
+                    etUsername.setError("Username field is empty");
+                    return;
+                }
+                if (TextUtils.isEmpty(password)){
+                    etPassword.setError("Password is field is empty");
+                    return;
+                }
+
+                if(password.length()< 6){
+                    etPassword.setError("Password is too short");
+                    return;
+                }
+
+                fAuth.signInWithEmailAndPassword(username, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()){
+                            Toast.makeText(MainActivity.this, "Logged in successfully", Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(getApplicationContext(), userDashboard.class));
+                        }else {
+                            Toast.makeText(MainActivity.this, "Error ! " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
 
                 // check if username and password are empty
-                if (username.isEmpty() || password.isEmpty()) {
+/*                if (username.isEmpty() || password.isEmpty()) {
                     Toast.makeText(MainActivity.this, "Please enter username and password", Toast.LENGTH_SHORT).show();
                 } else {
                     // check if username and password are correct
@@ -59,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
                         // if incorrect, show error message
                         Toast.makeText(MainActivity.this, "Incorrect username or password", Toast.LENGTH_SHORT).show();
                     }
-                }
+                }*/
             }
         });
 

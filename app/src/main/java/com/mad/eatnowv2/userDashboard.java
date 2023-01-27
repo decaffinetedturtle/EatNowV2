@@ -41,6 +41,8 @@ public class userDashboard extends AppCompatActivity implements View.OnClickList
 
         userID = fauth.getCurrentUser().getUid();
 
+        dashboardUsername = findViewById(R.id.dashboardUsername);
+
         DocumentReference documentReference = fstore.collection("users").document(userID);
         documentReference.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
             @Override

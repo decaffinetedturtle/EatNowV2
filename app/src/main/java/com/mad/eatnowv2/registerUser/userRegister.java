@@ -54,11 +54,6 @@ public class userRegister extends AppCompatActivity {
 
 
 
-        if (mAuth.getCurrentUser() != null){
-            startActivity(new Intent(getApplicationContext(),userDashboard.class));
-            finish();;
-        }
-
 
         regBtn.setOnClickListener(new View.OnClickListener() {
             @Override
