@@ -23,6 +23,7 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.mad.eatnowv2.R;
+import com.mad.eatnowv2.userDashboard;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -77,7 +78,7 @@ public class addItem extends AppCompatActivity {
         fStore.collection("UserData").add(Userdata).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
             @Override
             public void onSuccess(DocumentReference documentReference) {
-                Intent intent = new Intent(addItem.this, ExpiredItems.class);
+                Intent intent = new Intent(addItem.this, userDashboard.class);
                 startActivity(intent);
 
             }
