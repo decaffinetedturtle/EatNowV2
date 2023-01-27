@@ -20,7 +20,7 @@
         android:layout_height="50dp"
         android:layout_marginStart="@dimen/cardview_compat_inset_shadow"
         android:autofillHints="Username"
-        android:hint="register"
+        android:hint="username"
         android:inputType="textEmailAddress"
         android:textColorHint="#757575"/>
     <LinearLayout
@@ -34,9 +34,20 @@
             android:layout_height="50dp"
             android:layout_marginStart="@dimen/cardview_compat_inset_shadow"
             android:autofillHints="Password"
-            android:hint="register password"
-            android:inputType="textVisiblePassword"
+            android:hint="password"
+            android:inputType="textPassword"
             android:textColorHint="#757575"/>
+
+        <EditText
+            android:id="@+id/registerEmail"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginStart="1dp"
+            android:hint="Email"
+            android:inputType="textEmailAddress"
+
+
+            />
     </LinearLayout>
 
     <Space

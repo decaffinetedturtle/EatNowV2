@@ -21,7 +21,7 @@ import com.mad.eatnowv2.Halal.CheckHalal;
 
 public class userDashboard extends AppCompatActivity implements View.OnClickListener {
 
-    TextView dashboardUsername;
+    TextView dashboardUsername, dashboardEmail;
     FirebaseAuth fauth;
     FirebaseFirestore fstore;
     String userID;
@@ -35,6 +35,7 @@ public class userDashboard extends AppCompatActivity implements View.OnClickList
 
 
         dashboardUsername = findViewById(R.id.dashboardUsername);
+        dashboardEmail = findViewById(R.id.dashboardEmail);
 
         fauth = FirebaseAuth.getInstance();
         fstore = FirebaseFirestore.getInstance();
@@ -48,6 +49,7 @@ public class userDashboard extends AppCompatActivity implements View.OnClickList
             @Override
             public void onEvent(DocumentSnapshot documentSnapshot, FirebaseFirestoreException e) {
                 dashboardUsername.setText(documentSnapshot.getString("username"));
+                dashboardEmail.setText(documentSnapshot.getString("email"));
             }
         });
 
