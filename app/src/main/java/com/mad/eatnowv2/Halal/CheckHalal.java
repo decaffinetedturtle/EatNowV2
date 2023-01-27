@@ -21,19 +21,19 @@ public class CheckHalal extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_check_halal);
-        /*WebView = findViewById(R.id.WebView);
+        WebView = findViewById(R.id.WebView);
         WebSettings webSettings = WebView.getSettings();
         webSettings.setJavaScriptEnabled(true);
         WebView.setWebViewClient(new callback());
-        WebView.loadUrl("https://www.halal.gov.my/v4/index.php?");*/
+        WebView.loadUrl("https://www.halal.gov.my/v4/index.php?");
     }
 
-    /*private class callback extends WebViewClient {
+    private class callback extends WebViewClient {
         @Override
         public boolean shouldOverrideKeyEvent(WebView view, KeyEvent url)
         {
             return false;
         }
-    }*/
+    }
 }
 
