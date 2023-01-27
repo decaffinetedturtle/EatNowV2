@@ -39,10 +39,7 @@ public static final int CAMERA_REQUEST_CODE = 102;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_item);
-        etFoodName = findViewById(R.id.etFoodName);
-        etFoodDesc = findViewById(R.id.etFoodDesc);
-        etFoodExp = findViewById(R.id.etFoodExp);
-        btnSubmit = findViewById(R.id.btnSubmit);
+        
 
         imageSelected = findViewById(R.id.imageView2);
         btnCamera = findViewById(R.id.btnCamera);
