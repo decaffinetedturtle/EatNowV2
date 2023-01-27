@@ -11,7 +11,7 @@
 
     <Space
         android:layout_width="wrap_content"
-        android:layout_height="100dp"></Space>
+        android:layout_height="100dp"/>
 
 
     <EditText
@@ -22,7 +22,7 @@
         android:autofillHints="Username"
         android:hint="register"
         android:inputType="textEmailAddress"
-        android:textColorHint="#757575"></EditText>
+        android:textColorHint="#757575"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -36,12 +36,12 @@
             android:autofillHints="Password"
             android:hint="register password"
             android:inputType="textVisiblePassword"
-            android:textColorHint="#757575"></EditText>
+            android:textColorHint="#757575"/>
     </LinearLayout>
 
     <Space
         android:layout_width="wrap_content"
-        android:layout_height="50dp"></Space>
+        android:layout_height="50dp"/>
     <Button
         android:id="@+id/registerBtn"
         android:layout_width="wrap_content"
@@ -51,7 +51,7 @@
 
     <Space
         android:layout_width="wrap_content"
-        android:layout_height="25dp"></Space>
+        android:layout_height="25dp"/>
 
 
 </LinearLayout>
