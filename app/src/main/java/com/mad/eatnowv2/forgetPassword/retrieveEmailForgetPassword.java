@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -18,7 +19,7 @@ import com.mad.eatnowv2.R;
 public class retrieveEmailForgetPassword extends AppCompatActivity {
 
     Button retrieveEmailBtn;
-    TextInputLayout emailInputLayout;
+    EditText emailInputLayout;
 
     FirebaseAuth Auth;
 
@@ -35,7 +36,7 @@ public class retrieveEmailForgetPassword extends AppCompatActivity {
         retrieveEmailBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Auth.sendPasswordResetEmail(emailInputLayout.getEditText().toString()).addOnCompleteListener(new OnCompleteListener<Void>() {
+                Auth.sendPasswordResetEmail(emailInputLayout.getText().toString()).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
@@ -50,13 +51,13 @@ public class retrieveEmailForgetPassword extends AppCompatActivity {
     });
 
 
-        retrieveEmailBtn.setOnClickListener(new View.OnClickListener() {
+        /*retrieveEmailBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(retrieveEmailForgetPassword.this, userForgot.class);
                 startActivity(intent);
             }
-        });
+        });*/
 
     }
 }
