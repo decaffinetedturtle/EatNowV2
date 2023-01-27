@@ -1,7 +1,11 @@
 package com.mad.eatnowv2.menuItems;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -9,7 +13,10 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -88,9 +95,31 @@ public class addItem extends AppCompatActivity {
 
     });
 
+       if (ContextCompat.checkSelfPermission(addItem.this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED){
+           ActivityCompat.requestPermissions(addItem.this, new String[]{Manifest.permission.CAMERA},101);
+       }
 
+       btnCamera.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View view) {
+               Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+               startActivityForResult(intent, 101);
+
+           }
+       });
+
+        }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == 101 ){
+            Bitmap bitmap = (Bitmap) data.getExtras().get("data");
+            imageSelected.setImageBitmap(bitmap);
+        }
     }
 }
+
 
 
 
