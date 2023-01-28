@@ -46,7 +46,7 @@ public class addItem extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_item);
 
-        imageSelected = findViewById(R.id.imageView3);
+        imageSelected = findViewById(R.id.imageView2);
         btnCamera = findViewById(R.id.btnCamera);
 
         etFoodTitle = findViewById(R.id.etFoodTitle);
