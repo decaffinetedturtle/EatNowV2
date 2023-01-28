@@ -13,6 +13,8 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.mad.eatnowv2.itemLists.expiredStuff.expiredMain;
+import com.mad.eatnowv2.itemLists.unExpiredStuff.unExpiredMain;
 import com.mad.eatnowv2.menuItems.ExpiredItems;
 import com.mad.eatnowv2.menuItems.addItem;
 import com.mad.eatnowv2.menuItems.unExpiredItems;
@@ -73,9 +75,9 @@ public class userDashboard extends AppCompatActivity implements View.OnClickList
 
         switch (v.getId()) {
             case R.id.unexpiredCard :
-                i = new android.content.Intent(this, unExpiredItems.class); startActivity(i); break;
+                i = new android.content.Intent(this, unExpiredMain.class); startActivity(i); break;
             case R.id.expiredCard :
-                i = new android.content.Intent(this, ExpiredItems.class); startActivity(i); break;
+                i = new android.content.Intent(this, expiredMain.class); startActivity(i); break;
             case R.id.userCard :
                 i = new android.content.Intent(this, CheckHalal.class); startActivity(i); break;
             case R.id.scanCard :
