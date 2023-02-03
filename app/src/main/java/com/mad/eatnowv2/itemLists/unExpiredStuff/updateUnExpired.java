@@ -77,6 +77,8 @@ public class updateUnExpired extends AppCompatActivity{
                     public void onClick(DialogInterface dialog, int which) {
                         moveFood(fstore.collection("UserData").document(food.getFoodId()),
                                 fstore.collection("expiredFood").document(food.getFoodId()));
+                        Toast.makeText(updateUnExpired.this, "Food moved to expired list", Toast.LENGTH_SHORT).show();
+                        finish();
 
                     }
                 });
