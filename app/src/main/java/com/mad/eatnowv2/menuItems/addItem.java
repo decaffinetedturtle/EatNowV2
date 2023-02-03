@@ -20,9 +20,11 @@ import androidx.core.content.ContextCompat;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.mad.eatnowv2.R;
+import com.mad.eatnowv2.itemLists.foodGetter;
 import com.mad.eatnowv2.userDashboard;
 
 import java.util.HashMap;
@@ -68,28 +70,25 @@ public class addItem extends AppCompatActivity {
         String foodDesc = etFoodDesc.getText().toString().trim();
         String expiryDate = etExpDate.getText().toString().trim();
 
+            CollectionReference collectionReference = fStore.collection("UserData");
+            foodGetter food = new foodGetter(foodName, foodDesc, expiryDate);
 
-        Map<String, String> Userdata = new HashMap<>();
-        Userdata.put("foodName", foodName);
-        Userdata.put("foodDesc", foodDesc);
-        Userdata.put("expiryDate", expiryDate);
-
-
-        fStore.collection("UserData").add(Userdata).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-            @Override
-            public void onSuccess(DocumentReference documentReference) {
-                Intent intent = new Intent(addItem.this, userDashboard.class);
-                startActivity(intent);
-
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                String error = e.getMessage();
-                Toast.makeText(addItem.this, "Error" + error, Toast.LENGTH_SHORT).show();
-            }
-        });
-
+            collectionReference.add(food)
+                    .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                        @Override
+                        public void onSuccess(DocumentReference documentReference) {
+                            Intent intent = new Intent(addItem.this, userDashboard.class);
+                            Toast.makeText(addItem.this, "Item Added", Toast.LENGTH_SHORT).show();
+                            startActivity(intent);
+                        }
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            String error = e.getMessage();
+                            Toast.makeText(addItem.this, "Error" + error, Toast.LENGTH_SHORT).show();
+                        }
+                    });
 
     }
 
