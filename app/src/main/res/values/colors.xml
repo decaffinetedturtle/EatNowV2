@@ -103,7 +103,6 @@
     <color name="Gray">#808080</color>
     <color name="Olive">#808000</color>
     <color name="Purple">#800080</color>
-    <color name="Maroon">#800000</color>
     <color name="Aquamarine">#7FFFD4</color>
     <color name="Chartreuse">#7FFF00</color>
     <color name="LawnGreen">#7CFC00</color>
@@ -147,4 +146,13 @@
     <color name="DarkBlue">#00008B</color>
     <color name="Navy">#000080</color>
     <color name="Black">#000000</color>
+
+
+    <!--important colors-->
+    <color name="Maroon">#4D243D</color>
+    <color name="Peach">#EDD4B2</color>
+    <color name="TanSkin">#D0A98F</color>
+    <color name="WhiteGrey">#CAC2B5</color>
+    <color name="PaleGrey">#ECDCC9</color>
+
 </resources>
