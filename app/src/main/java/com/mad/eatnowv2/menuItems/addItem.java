@@ -24,11 +24,9 @@ import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.mad.eatnowv2.R;
+import com.mad.eatnowv2.barcodeScan;
 import com.mad.eatnowv2.itemLists.foodGetter;
 import com.mad.eatnowv2.userDashboard;
-
-import java.util.HashMap;
-import java.util.Map;
 
 public class addItem extends AppCompatActivity {
 
@@ -36,7 +34,7 @@ public class addItem extends AppCompatActivity {
     FirebaseFirestore fStore;
     Button btnSubmit;
     ImageView imageSelected;
-    Button btnCamera;
+    Button btnCamera,btnScan;
 
 
     public static final int CAMERA_PERM_CODE = 101;
@@ -56,10 +54,18 @@ public class addItem extends AppCompatActivity {
         etExpDate = findViewById(R.id.etFoodExpDate);
 
         btnSubmit = findViewById(R.id.btnSubmit);
+        btnScan = findViewById(R.id.btnScan);
 
         fStore = FirebaseFirestore.getInstance();
 
+        btnScan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(addItem.this, barcodeScan.class);
+                startActivity(intent);
 
+            }
+        });
 
        btnSubmit.setOnClickListener(new View.OnClickListener()
 
