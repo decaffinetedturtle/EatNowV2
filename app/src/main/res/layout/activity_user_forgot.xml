@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".userDashboard">
+    tools:context=".userDashboard"
+    android:background="@drawable/button_custom">
 
 
     <androidx.cardview.widget.CardView
@@ -25,7 +26,8 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintVertical_bias="0.0"
+        android:background="#2323">
 
         <!-- This is the cardview -->
         <LinearLayout
@@ -37,12 +39,12 @@
 
             <ImageView
                 android:id="@+id/placeholderview"
-                android:layout_width="150dp"
+                android:layout_width="196dp"
                 android:layout_height="200dp"
                 android:layout_gravity="center"
                 android:layout_margin="10dp"
                 android:contentDescription="This is a placeholder image"
-                android:src="@drawable/placeholder" />
+                android:src="@drawable/eat_now_logo" />
 
             <EditText
                 android:layout_width="wrap_content"

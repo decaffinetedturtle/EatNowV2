@@ -21,7 +21,8 @@
         app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.475" />
+        app:layout_constraintVertical_bias="0.475"
+        />
 
     <EditText
         android:id="@+id/etFoodTitle"
@@ -39,7 +40,8 @@
         app:layout_constraintBottom_toBottomOf="@+id/btnSubmit"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnScan"></EditText>
+        app:layout_constraintTop_toBottomOf="@+id/btnScan"
+        ></EditText>
 
     <Space
         android:id="@+id/space"

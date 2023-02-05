@@ -14,15 +14,14 @@
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="15dp"></Space>
+        android:layout_height="8dp"></Space>
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="136dp"
-        android:layout_height="102dp"
+        android:layout_width="150dp"
+        android:layout_height="123dp"
         android:layout_gravity="center"
-        android:paddingTop="20dp"
-        app:srcCompat="@drawable/logo"
+        app:srcCompat="@drawable/eat_now_logo"
         tools:layout_editor_absoluteX="136dp"
         tools:layout_editor_absoluteY="67dp" />
 
@@ -114,7 +113,7 @@
 
             <Space
                 android:layout_width="match_parent"
-                android:layout_height="20dp"></Space>
+                android:layout_height="10dp"></Space>
 
 
         </LinearLayout>
@@ -124,7 +123,7 @@
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="34dp"></Space>
+        android:layout_height="20dp"></Space>
 
     <TextView
         android:layout_width="wrap_content"
