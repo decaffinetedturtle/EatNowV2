@@ -62,11 +62,12 @@
             android:ems="10"
             android:hint="  Username"
             android:inputType="textPersonName"
-            android:minHeight="48dp"></EditText>
+            android:minHeight="48dp"
+            android:drawableRight="@drawable/title_name"></EditText>
 
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="25dp"></Space>
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="25dp"></Space>
 
         <EditText
             android:id="@+id/registerPass"

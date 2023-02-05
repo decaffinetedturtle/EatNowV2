@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background1"
+    android:background="@drawable/button_custom"
     tools:context=".itemLists.expiredStuff.expiredMain">
 
     <TextView
@@ -15,7 +15,7 @@
         android:textSize="30dp"
         android:gravity="center"
         android:fontFamily="@font/ubuntu_bold_italic"
-        android:textColor="@color/PaleGrey"
+        android:textColor="@color/Maroon"
         android:background="#30ffffff"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -28,15 +28,14 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/expiredRecyclerView"
-        android:layout_width="411dp"
-        android:layout_height="319dp"
+        android:layout_width="382dp"
+        android:layout_height="500dp"
         android:layout_marginStart="1dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="1dp"
         android:layout_marginBottom="1dp"
-        android:textColor="@color/white"
         android:background="@color/Peach"
         android:textAlignment="center"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

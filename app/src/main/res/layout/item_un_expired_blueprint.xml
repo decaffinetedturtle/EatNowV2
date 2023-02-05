@@ -3,14 +3,16 @@
 
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:background="@drawable/button_custom">
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:background="#9F8C76">
 
 
         <LinearLayout
@@ -34,7 +36,7 @@
                 android:layout_height="wrap_content"
                 android:text="FoodName"
                 android:layout_marginLeft="15dp"
-                android:textColor="@color/black"
+                android:textColor="@color/White"
                 android:textSize="18sp"
                 android:textStyle="italic"
                 />
@@ -63,7 +65,7 @@
                 android:layout_height="wrap_content"
                 android:text="FoodDesc"
                 android:layout_marginLeft="15dp"
-                android:textColor="@color/black"
+                android:textColor="@color/White"
                 android:textSize="18sp"
                 android:textStyle="italic"
                 />
@@ -91,7 +93,7 @@
                 android:layout_height="wrap_content"
                 android:text="expiryDate"
                 android:layout_marginLeft="15dp"
-                android:textColor="@color/black"
+                android:textColor="@color/White"
                 android:textSize="18sp"
                 android:textStyle="italic"
                 />

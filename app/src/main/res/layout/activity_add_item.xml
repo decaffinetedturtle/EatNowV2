@@ -4,57 +4,73 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background1"
+    android:background="@drawable/button_custom"
     tools:context=".menuItems.addItem">
+
 
     <Button
         android:id="@+id/btnScan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="292dp"
-        android:background="@drawable/button_custom"
+        android:background="@drawable/edit_text_design"
         android:text="SCAN"
         android:textColor="#ffff"
         android:textSize="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnCamera" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.475" />
 
     <EditText
         android:id="@+id/etFoodTitle"
-        android:layout_width="wrap_content"
+        android:layout_width="267dp"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="23dp"
+        android:layout_marginBottom="200dp"
+        android:background="@drawable/edit_text_design"
+        android:drawableRight="@drawable/title_name"
         android:ems="10"
+        android:hint="  Food Name"
         android:inputType="textPersonName"
-        android:text=""
+        android:minHeight="48dp"
         app:layout_constraintBottom_toBottomOf="@+id/btnSubmit"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.611"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.595" />
+        app:layout_constraintTop_toBottomOf="@+id/btnScan"></EditText>
+
+    <Space
+        android:id="@+id/space"
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        app:layout_constraintBottom_toTopOf="@+id/btnCamera"></Space>
 
     <EditText
         android:id="@+id/etFoodDesc"
-        android:layout_width="wrap_content"
+        android:layout_width="267dp"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="152dp"
+        android:layout_marginBottom="68dp"
+        android:background="@drawable/edit_text_design"
+        android:drawableRight="@drawable/date_icon"
         android:ems="10"
+        android:hint="  Food Expiry Date"
         android:inputType="textPersonName"
-        android:text=""
+        android:minHeight="48dp"
         app:layout_constraintBottom_toBottomOf="@+id/btnSubmit"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.611"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.719" />
+        app:layout_constraintTop_toBottomOf="@+id/btnScan"></EditText>
+
 
     <Button
         android:id="@+id/btnCamera"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/button_custom"
+        android:background="@drawable/edit_text_design"
         android:text="CAPTURE"
         android:textColor="#ffff"
         android:textSize="15dp"
@@ -64,64 +80,38 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.353" />
 
+
     <Button
         android:id="@+id/btnSubmit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="40dp"
+        android:background="@drawable/button_login"
         android:text="Submit"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.945"
+        android:textColor="@color/White"/>
 
     <EditText
         android:id="@+id/etFoodExpDate"
-        android:layout_width="wrap_content"
+        android:layout_width="267dp"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="83dp"
+        android:layout_marginBottom="136dp"
+        android:background="@drawable/edit_text_design"
+        android:drawableRight="@drawable/desc_icon"
         android:ems="10"
-        android:inputType="date"
+        android:hint="  Food Description"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
         app:layout_constraintBottom_toBottomOf="@+id/btnSubmit"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.611"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.845" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Food Name"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.106"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.558" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Food Description"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.055"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.666" />
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Food Expiry Date"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.052"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.775" />
+        app:layout_constraintTop_toBottomOf="@+id/btnScan"></EditText>
 
     <ImageView
         android:id="@+id/imageView2"
