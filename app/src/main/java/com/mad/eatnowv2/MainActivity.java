@@ -204,11 +204,11 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 
     }
 
-    @Override
+/*    @Override
     protected void onResume() {
         super.onResume ();
         sensorManager.registerListener (this, lightSensor, SensorManager.SENSOR_DELAY_NORMAL);
-    }
+    }*/
 
     @Override
     protected void onPause() {
