@@ -7,6 +7,10 @@ import androidx.biometric.BiometricPrompt;
 import androidx.core.content.ContextCompat;
 
 import android.content.Intent;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -23,12 +27,20 @@ import com.mad.eatnowv2.registerUser.userRegister;
 
 import java.util.concurrent.Executor;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements SensorEventListener {
 
     Button btnLogin, btnRegister, ForgotPasswordBtn, fingerPrintBtn;
     EditText etUsername, etPassword, etapa;
 
     FirebaseAuth fAuth;
+
+    private SensorManager sensorManager;
+    private Sensor lightSensor;
+
+    private BiometricPrompt biometricPrompt;
+    private BiometricPrompt.PromptInfo promptInfo;
+    private Executor executor;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -141,15 +153,79 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    void enableButton(Boolean enable){
-        fingerPrintBtn.setEnabled(enable);
+    private void biometricAuth() {
+        Executor executor = ContextCompat.getMainExecutor (this);
+        BiometricPrompt biometricPrompt = new BiometricPrompt (MainActivity.this, executor, new BiometricPrompt.AuthenticationCallback () {
+            @Override
+            public void onAuthenticationError(int errorCode, @NonNull CharSequence errString) {
+                super.onAuthenticationError (errorCode, errString);
+                Toast.makeText (MainActivity.this, "Error: " + errString, Toast.LENGTH_SHORT).show ();
+            }
+
+            @Override
+            public void onAuthenticationSucceeded(@NonNull BiometricPrompt.AuthenticationResult result) {
+                super.onAuthenticationSucceeded (result);
+                Toast.makeText (MainActivity.this, "Success", Toast.LENGTH_SHORT).show ();
+                startActivity (new Intent (getApplicationContext (), userDashboard.class));
+            }
+
+            @Override
+            public void onAuthenticationFailed() {
+                super.onAuthenticationFailed ();
+                Toast.makeText (MainActivity.this, "Failed", Toast.LENGTH_SHORT).show ();
+            }
+        });
+
+        BiometricPrompt.PromptInfo promptInfo = new BiometricPrompt.PromptInfo.Builder ()
+                .setTitle ("Biometric Authentication")
+                .setSubtitle ("Login using biometric")
+                .setNegativeButtonText ("Cancel")
+                .build ();
+
+        biometricPrompt.authenticate (promptInfo);
+
     }
-    void enableButton(Boolean enable, Boolean enroll){
-        enableButton(enable);
-        if(!enroll) return;
-        Intent enrollIntent = new Intent(android.provider.Settings.ACTION_BIOMETRIC_ENROLL);
-        enrollIntent.putExtra(android.provider.Settings.EXTRA_BIOMETRIC_AUTHENTICATORS_ALLOWED,
-                BiometricManager.Authenticators.BIOMETRIC_STRONG | BiometricManager.Authenticators.BIOMETRIC_WEAK);
-        startActivity(enrollIntent);
+    @Override
+    public void onSensorChanged(SensorEvent event) {
+        if (event.sensor.getType () == Sensor.TYPE_LIGHT) {
+            float lux = event.values[0];
+            if (lux < 100) {
+                fingerPrintBtn.setEnabled (false);
+            } else {
+                fingerPrintBtn.setEnabled (true);
+            }
         }
     }
+
+
+
+    @Override
+    public void onAccuracyChanged(Sensor sensor, int accuracy) {
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume ();
+        sensorManager.registerListener (this, lightSensor, SensorManager.SENSOR_DELAY_NORMAL);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause ();
+        sensorManager.unregisterListener (this);
+    }
+
+    void enableButton(Boolean enable) {
+        fingerPrintBtn.setEnabled (enable);
+    }
+
+    void enableButton(Boolean enable, Boolean enroll) {
+        enableButton (enable);
+        if (!enroll) return;
+        Intent enrollIntent = new Intent (android.provider.Settings.ACTION_BIOMETRIC_ENROLL);
+        enrollIntent.putExtra (android.provider.Settings.EXTRA_BIOMETRIC_AUTHENTICATORS_ALLOWED,
+                BiometricManager.Authenticators.BIOMETRIC_STRONG | BiometricManager.Authenticators.BIOMETRIC_WEAK);
+        startActivity (enrollIntent);
+    }
+}
