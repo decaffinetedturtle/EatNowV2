@@ -6,59 +6,108 @@
     android:layout_width="match_parent"
     android:orientation="vertical"
     android:layout_height="match_parent"
-    tools:context=".registerUser.userRegister">
+    tools:context=".registerUser.userRegister"
+    android:background="#FFFFFF"
+    android:backgroundTint="@color/PaleGrey">
 
 
     <Space
+        android:layout_width="match_parent"
+        android:layout_height="15dp"></Space>
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="136dp"
+        android:layout_height="102dp"
+        android:layout_gravity="center"
+        android:paddingTop="20dp"
+        app:srcCompat="@drawable/logo"
+        tools:layout_editor_absoluteX="136dp"
+        tools:layout_editor_absoluteY="67dp" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="25dp"></Space>
+
+    <TextView
         android:layout_width="wrap_content"
-        android:layout_height="100dp"/>
-
-
-    <EditText
-        android:id="@+id/registerInput"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginStart="@dimen/cardview_compat_inset_shadow"
-        android:autofillHints="Username"
-        android:hint="username"
-        android:inputType="textEmailAddress"
-        android:textColorHint="#757575"/>
-    <LinearLayout
-        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:fontFamily="@font/ubuntu_bold"
+        android:text="Register"
+        android:textColor="@color/Maroon"
+        android:textSize="40dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="25dp"></Space>
+
+    <LinearLayout
+        android:layout_width="361dp"
+        android:layout_height="231dp"
+        android:layout_gravity="center"
         android:orientation="vertical">
 
         <EditText
+            android:id="@+id/registerInput"
+            android:layout_width="269dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/edit_text_design"
+            android:ems="10"
+            android:hint="  Username"
+            android:inputType="textPersonName"
+            android:minHeight="48dp"
+            android:drawableRight="@drawable/title_name"></EditText>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="25dp"></Space>
+
+        <EditText
             android:id="@+id/registerPass"
+            android:layout_width="266dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/edit_text_design"
+            android:drawableRight="@drawable/lock_icon"
+            android:ems="10"
+            android:hint="  Password"
+            android:inputType="textPersonName"
+            android:minHeight="48dp"></EditText>
+
+        <Space
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginStart="@dimen/cardview_compat_inset_shadow"
-            android:autofillHints="Password"
-            android:hint="password"
-            android:inputType="textPassword"
-            android:textColorHint="#757575"/>
+            android:layout_height="25dp"></Space>
 
         <EditText
             android:id="@+id/registerEmail"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginStart="1dp"
-            android:hint="Email"
-            android:inputType="textEmailAddress"
-
-
-            />
+            android:layout_width="267dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/edit_text_design"
+            android:drawableRight="@drawable/email_icon"
+            android:ems="10"
+            android:hint="  Email"
+            android:inputType="textPersonName"
+            android:minHeight="48dp"></EditText>
     </LinearLayout>
 
     <Space
         android:layout_width="wrap_content"
-        android:layout_height="50dp"/>
+        android:layout_height="10dp"/>
     <Button
         android:id="@+id/registerBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="register"/>
+        android:text="Continue"
+        android:background="@drawable/button_login"/>
 
     <Space
         android:layout_width="wrap_content"

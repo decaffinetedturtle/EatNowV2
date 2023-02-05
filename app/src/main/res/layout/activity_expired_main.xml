@@ -4,18 +4,43 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/button_custom"
     tools:context=".itemLists.expiredStuff.expiredMain">
+
+    <TextView
+        android:id="@+id/tvExpired"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Expired Items"
+        android:textSize="30dp"
+        android:gravity="center"
+        android:fontFamily="@font/ubuntu_bold_italic"
+        android:textColor="@color/Maroon"
+        android:background="#30ffffff"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.027">
+
+    </TextView>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/expiredRecyclerView"
-        android:layout_width="409dp"
-        android:layout_height="601dp"
+        android:layout_width="382dp"
+        android:layout_height="500dp"
         android:layout_marginStart="1dp"
-        android:layout_marginTop="1dp"
-        android:layout_marginEnd="1dp"
+        android:layout_marginTop="8dp"
         android:layout_marginBottom="1dp"
+        android:background="@color/Peach"
+        android:textAlignment="center"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/tvExpired"
+        app:layout_constraintVertical_bias="0.151" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
