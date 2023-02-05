@@ -27,10 +27,10 @@ import com.mad.eatnowv2.registerUser.userRegister;
 
 import java.util.concurrent.Executor;
 
-public class MainActivity extends AppCompatActivity implements SensorEventListener {
+public class MainActivity extends AppCompatActivity{
 
     Button btnLogin, btnRegister, ForgotPasswordBtn, fingerPrintBtn;
-    EditText etUsername, etPassword, etapa;
+    EditText etUsername, etPassword;
 
     FirebaseAuth fAuth;
 
@@ -51,7 +51,6 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         btnLogin = findViewById(R.id.loginBtn);
         btnRegister = findViewById(R.id.registerBtn);
         ForgotPasswordBtn = findViewById(R.id.ForgotPasswordBtn);
-        fingerPrintBtn = findViewById(R.id.fingerPrintBtn);
 
         fAuth = FirebaseAuth.getInstance();
 
@@ -128,7 +127,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 
     }
 
-    private void checkBioMetricSupported() {
+    /*private void checkBioMetricSupported() {
         BiometricManager biometricManager = BiometricManager.from(this);
         switch (biometricManager.canAuthenticate(BiometricManager.Authenticators.BIOMETRIC_WEAK
                 | BiometricManager.Authenticators.BIOMETRIC_STRONG)){
@@ -151,9 +150,9 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
                 enableButton(false, true);
                 break;
         }
-    }
+    }*/
 
-    private void biometricAuth() {
+    /*private void biometricAuth() {
         Executor executor = ContextCompat.getMainExecutor (this);
         BiometricPrompt biometricPrompt = new BiometricPrompt (MainActivity.this, executor, new BiometricPrompt.AuthenticationCallback () {
             @Override
@@ -195,14 +194,14 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
                 fingerPrintBtn.setEnabled (true);
             }
         }
-    }
+    }*/
 
 
 
-    @Override
+/*    @Override
     public void onAccuracyChanged(Sensor sensor, int accuracy) {
 
-    }
+    }*/
 
 /*    @Override
     protected void onResume() {
@@ -213,19 +212,19 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     @Override
     protected void onPause() {
         super.onPause ();
-        sensorManager.unregisterListener (this);
+        //sensorManager.unregisterListener (this);
     }
 
     void enableButton(Boolean enable) {
         fingerPrintBtn.setEnabled (enable);
     }
 
-    void enableButton(Boolean enable, Boolean enroll) {
+/*    void enableButton(Boolean enable, Boolean enroll) {
         enableButton (enable);
         if (!enroll) return;
         Intent enrollIntent = new Intent (android.provider.Settings.ACTION_BIOMETRIC_ENROLL);
         enrollIntent.putExtra (android.provider.Settings.EXTRA_BIOMETRIC_AUTHENTICATORS_ALLOWED,
                 BiometricManager.Authenticators.BIOMETRIC_STRONG | BiometricManager.Authenticators.BIOMETRIC_WEAK);
         startActivity (enrollIntent);
-    }
+    }*/
 }
