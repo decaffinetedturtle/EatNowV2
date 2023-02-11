@@ -14,7 +14,7 @@
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="8dp"></Space>
+        android:layout_height="25dp"></Space>
 
     <ImageView
         android:id="@+id/imageView"
@@ -27,7 +27,7 @@
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="15dp"></Space>
+        android:layout_height="20dp"></Space>
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -50,7 +50,7 @@
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="10dp"></Space>
+            android:layout_height="15dp"></Space>
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -88,7 +88,7 @@
 
             <Space
                 android:layout_width="wrap_content"
-                android:layout_height="10dp"></Space>
+                android:layout_height="30dp"></Space>
 
             <Button
                 android:id="@+id/loginBtn"
@@ -104,16 +104,6 @@
                 android:layout_height="10dp"></Space>
 
 
-            <Button
-                android:id="@+id/fingerPrintBtn"
-                android:layout_width="42dp"
-                android:layout_height="47dp"
-                android:layout_gravity="center"
-                android:background="@drawable/fingerprint_vector"></Button>
-
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="10dp"></Space>
 
 
         </LinearLayout>
@@ -123,7 +113,7 @@
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="20dp"></Space>
+        android:layout_height="50dp"></Space>
 
     <TextView
         android:layout_width="wrap_content"

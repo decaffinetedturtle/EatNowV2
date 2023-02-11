@@ -110,15 +110,16 @@
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/expiredCard"
-                android:layout_gravity="fill"
+                android:layout_width="90dp"
+                android:layout_height="129dp"
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
+                android:layout_gravity="fill"
                 android:layout_margin="10sp"
                 app:cardBackgroundColor="#9F8C76"
                 app:cardCornerRadius="20dp"
                 app:cardElevation="10dp"
-                app:cardMaxElevation="12dp"
-                >
+                app:cardMaxElevation="12dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -126,26 +127,14 @@
                     android:layout_gravity="center"
                     android:orientation="vertical">
 
-                <ImageView
-                    android:id="@+id/expiredItem"
-                    android:layout_width="80dp"
-                    android:layout_height="60dp"
-                    android:layout_gravity="center"
-                    android:contentDescription="This is a expired items image"
-                    android:src="@drawable/expired" />
+                    <ImageView
+                        android:id="@+id/expiredItem"
+                        android:layout_width="80dp"
+                        android:layout_height="60dp"
+                        android:layout_gravity="center"
+                        android:contentDescription="This is a expired items image"
+                        android:src="@drawable/expired" />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Expired Items"
-                    android:fontFamily="@font/ubuntu_medium"
-                    android:textSize="15sp"
-                    android:textAlignment="center"
-                    android:layout_gravity="center"
-                    android:textColor="@color/MidnightBlue"
-                    android:paddingTop="10sp"
-                    android:paddingBottom="10sp"
-                    />
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
@@ -179,19 +168,6 @@
                         android:contentDescription="This is a unexpired image"
                         android:src="@drawable/list" />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Un-Expired Items"
-                    android:fontFamily="@font/ubuntu_medium"
-                    android:textSize="15sp"
-                    android:textAlignment="center"
-                    android:layout_gravity="center"
-                    android:textColor="@color/MidnightBlue"
-                    android:paddingTop="10sp"
-                    android:paddingBottom="10sp"
-                    />
-
                 </LinearLayout>
 
 
@@ -207,6 +183,8 @@
                 app:cardCornerRadius="20dp"
                 app:cardElevation="10dp"
                 app:cardMaxElevation="12dp"
+                android:layout_width="90dp"
+                android:layout_height="129dp"
                 >
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -220,20 +198,8 @@
                     android:layout_height="50dp"
                     android:layout_gravity="center"
                     android:contentDescription="This is a check halal image"
-                    android:src="@drawable/check" />
+                    android:src="@drawable/halal_icon" />
 
-                <TextView
-                    android:id="@+id/btn_halal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:paddingTop="10sp"
-                    android:paddingBottom="10sp"
-                    android:text="Check Halal"
-                    android:fontFamily="@font/ubuntu_medium"
-                    android:textAlignment="center"
-                    android:textColor="@color/MidnightBlue"
-                    android:textSize="15sp" />
                 </LinearLayout>
 
 
@@ -264,19 +230,6 @@
                     android:layout_gravity="center"
                     android:contentDescription="This is a add new items image"
                     android:src="@drawable/add" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Add New Items"
-                    android:fontFamily="@font/ubuntu_medium"
-                    android:textSize="15sp"
-                    android:textAlignment="center"
-                    android:layout_gravity="center"
-                    android:textColor="@color/MidnightBlue"
-                    android:paddingTop="10sp"
-                    android:paddingBottom="10sp"
-                    />
 
                 </LinearLayout>
 
