@@ -2,6 +2,7 @@ package com.mad.eatnowv2;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.biometric.BiometricPrompt;
 
 
 import android.content.Intent;
@@ -22,6 +23,8 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.mad.eatnowv2.forgetPassword.retrieveEmailForgetPassword;
 import com.mad.eatnowv2.registerUser.userRegister;
+
+import java.util.concurrent.Executor;
 
 
 public class MainActivity extends AppCompatActivity{
@@ -123,12 +126,6 @@ public class MainActivity extends AppCompatActivity{
         });
 
     }
-
-<<<<<<< test-mirul-branch
-
-
-
-=======
     /*private void checkBioMetricSupported() {
         BiometricManager biometricManager = BiometricManager.from(this);
         switch (biometricManager.canAuthenticate(BiometricManager.Authenticators.BIOMETRIC_WEAK
