@@ -4,19 +4,17 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 
-import android.content.Context;
 import android.content.Intent;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
-import android.hardware.Sensor;
-import android.hardware.SensorEvent;
-import android.hardware.SensorEventListener;
-import android.hardware.SensorManager;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -26,26 +24,25 @@ import com.mad.eatnowv2.forgetPassword.retrieveEmailForgetPassword;
 import com.mad.eatnowv2.registerUser.userRegister;
 
 
-public class MainActivity extends AppCompatActivity implements SensorEventListener {
+public class MainActivity extends AppCompatActivity{
 
     Button btnLogin, btnRegister, ForgotPasswordBtn, fingerPrintBtn;
-    EditText etUsername, etPassword, etapa;
+    EditText etUsername, etPassword;
 
     FirebaseAuth fAuth;
 
     private SensorManager sensorManager;
     private Sensor lightSensor;
 
+    private BiometricPrompt biometricPrompt;
+    private BiometricPrompt.PromptInfo promptInfo;
+    private Executor executor;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        //light sensor
-        // Register the light sensor
-        sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
-        lightSensor = sensorManager.getDefaultSensor(Sensor.TYPE_LIGHT);
-        sensorManager.registerListener(this, lightSensor, SensorManager.SENSOR_DELAY_NORMAL);
 
         // button find view by ids
         btnLogin = findViewById(R.id.loginBtn);
@@ -127,33 +124,110 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 
     }
 
+<<<<<<< test-mirul-branch
 
 
 
+=======
+    /*private void checkBioMetricSupported() {
+        BiometricManager biometricManager = BiometricManager.from(this);
+        switch (biometricManager.canAuthenticate(BiometricManager.Authenticators.BIOMETRIC_WEAK
+                | BiometricManager.Authenticators.BIOMETRIC_STRONG)){
+            case BiometricManager.BIOMETRIC_SUCCESS:
+                Toast.makeText(this, "App can authenticate using biometrics", Toast.LENGTH_SHORT).show();
+                enableButton(true);
+                break;
+            case BiometricManager.BIOMETRIC_ERROR_NO_HARDWARE:
+                Toast.makeText(this, "No biometric features available on this device", Toast.LENGTH_SHORT).show();
+                enableButton(false);
 
+                break;
+            case BiometricManager.BIOMETRIC_ERROR_HW_UNAVAILABLE:
+                Toast.makeText(this, "Biometric features are currently unavailable", Toast.LENGTH_SHORT).show();
+                enableButton(false);
+
+                break;
+            case BiometricManager.BIOMETRIC_ERROR_NONE_ENROLLED:
+                Toast.makeText(this, "The user hasn't associated any biometric credentials with their account", Toast.LENGTH_SHORT).show();
+                enableButton(false, true);
+                break;
+        }
+    }*/
+
+    /*private void biometricAuth() {
+        Executor executor = ContextCompat.getMainExecutor (this);
+        BiometricPrompt biometricPrompt = new BiometricPrompt (MainActivity.this, executor, new BiometricPrompt.AuthenticationCallback () {
+            @Override
+            public void onAuthenticationError(int errorCode, @NonNull CharSequence errString) {
+                super.onAuthenticationError (errorCode, errString);
+                Toast.makeText (MainActivity.this, "Error: " + errString, Toast.LENGTH_SHORT).show ();
+            }
+
+            @Override
+            public void onAuthenticationSucceeded(@NonNull BiometricPrompt.AuthenticationResult result) {
+                super.onAuthenticationSucceeded (result);
+                Toast.makeText (MainActivity.this, "Success", Toast.LENGTH_SHORT).show ();
+                startActivity (new Intent (getApplicationContext (), userDashboard.class));
+            }
+>>>>>>> main
+
+            @Override
+            public void onAuthenticationFailed() {
+                super.onAuthenticationFailed ();
+                Toast.makeText (MainActivity.this, "Failed", Toast.LENGTH_SHORT).show ();
+            }
+        });
+
+        BiometricPrompt.PromptInfo promptInfo = new BiometricPrompt.PromptInfo.Builder ()
+                .setTitle ("Biometric Authentication")
+                .setSubtitle ("Login using biometric")
+                .setNegativeButtonText ("Cancel")
+                .build ();
+
+        biometricPrompt.authenticate (promptInfo);
+
+    }
     @Override
     public void onSensorChanged(SensorEvent event) {
-        float lightLevel = event.values[0];
-        if (lightLevel > 100) {
-            Toast.makeText(MainActivity.this, "Light level is high", Toast.LENGTH_SHORT).show();
-        } else {
-            Toast.makeText(MainActivity.this, "Light level is low", Toast.LENGTH_SHORT).show();
+        if (event.sensor.getType () == Sensor.TYPE_LIGHT) {
+            float lux = event.values[0];
+            if (lux < 100) {
+                fingerPrintBtn.setEnabled (false);
+            } else {
+                fingerPrintBtn.setEnabled (true);
+            }
         }
-    }
+    }*/
 
-    @Override
+
+
+/*    @Override
     public void onAccuracyChanged(Sensor sensor, int accuracy) {
-    //do nothing
-    }
+
+    }*/
+
+/*    @Override
+    protected void onResume() {
+        super.onResume ();
+        sensorManager.registerListener (this, lightSensor, SensorManager.SENSOR_DELAY_NORMAL);
+    }*/
+
     @Override
     protected void onPause() {
-        super.onPause();
-        sensorManager.unregisterListener(this);
+        super.onPause ();
+        //sensorManager.unregisterListener (this);
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        sensorManager.registerListener(this, lightSensor, SensorManager.SENSOR_DELAY_NORMAL);
+    void enableButton(Boolean enable) {
+        fingerPrintBtn.setEnabled (enable);
     }
+
+/*    void enableButton(Boolean enable, Boolean enroll) {
+        enableButton (enable);
+        if (!enroll) return;
+        Intent enrollIntent = new Intent (android.provider.Settings.ACTION_BIOMETRIC_ENROLL);
+        enrollIntent.putExtra (android.provider.Settings.EXTRA_BIOMETRIC_AUTHENTICATORS_ALLOWED,
+                BiometricManager.Authenticators.BIOMETRIC_STRONG | BiometricManager.Authenticators.BIOMETRIC_WEAK);
+        startActivity (enrollIntent);
+    }*/
 }
