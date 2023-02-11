@@ -35,7 +35,7 @@
                     android:text="Food Name:"
                     android:textColor="@color/black"
                     android:textSize="20sp"
-                    android:fontFamily="@font/ubuntu_bold_italic"/>
+                    android:fontFamily="@font/disoriented"/>
 
                 <TextView
                     android:id="@+id/foodName"
@@ -62,7 +62,7 @@
                     android:text="Food Desc:"
                     android:textColor="@color/black"
                     android:textSize="20sp"
-                    android:fontFamily="@font/ubuntu_bold_italic"/>
+                    android:fontFamily="@font/disoriented"/>
 
 
                 <TextView
@@ -90,7 +90,7 @@
                     android:text="Expired On:"
                     android:textColor="@color/black"
                     android:textSize="20sp"
-                    android:fontFamily="@font/ubuntu_bold_italic"/>
+                    android:fontFamily="@font/disoriented"/>
 
 
                 <TextView

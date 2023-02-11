@@ -2,9 +2,7 @@ package com.mad.eatnowv2;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.biometric.BiometricManager;
-import androidx.biometric.BiometricPrompt;
-import androidx.core.content.ContextCompat;
+
 
 import android.content.Intent;
 import android.hardware.Sensor;
@@ -25,7 +23,6 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.mad.eatnowv2.forgetPassword.retrieveEmailForgetPassword;
 import com.mad.eatnowv2.registerUser.userRegister;
 
-import java.util.concurrent.Executor;
 
 public class MainActivity extends AppCompatActivity{
 
@@ -127,6 +124,11 @@ public class MainActivity extends AppCompatActivity{
 
     }
 
+<<<<<<< test-mirul-branch
+
+
+
+=======
     /*private void checkBioMetricSupported() {
         BiometricManager biometricManager = BiometricManager.from(this);
         switch (biometricManager.canAuthenticate(BiometricManager.Authenticators.BIOMETRIC_WEAK
@@ -167,6 +169,7 @@ public class MainActivity extends AppCompatActivity{
                 Toast.makeText (MainActivity.this, "Success", Toast.LENGTH_SHORT).show ();
                 startActivity (new Intent (getApplicationContext (), userDashboard.class));
             }
+>>>>>>> main
 
             @Override
             public void onAuthenticationFailed() {
